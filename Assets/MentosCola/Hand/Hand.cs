@@ -16,9 +16,15 @@ namespace MentosCola
 
         /// <summary>メントス初速度計算用に前フレームのメントスの位置を記憶</summary>
         Vector3 latestMentosPos = default;
+
+        [SerializeField] SpriteRenderer handSprite = default;
+        [SerializeField] Sprite handOpen = default;
+        [SerializeField] Sprite handClose = default;
+
         void Awake()
         {
             latestMentosPos = mentos.transform.position;
+            handSprite.sprite = handClose;
         }
 
         Vector3 mentosInitialVelocity = default;
@@ -54,6 +60,8 @@ namespace MentosCola
 
             mentos.transform.parent = null;
             mentosRb.velocity = mentosInitialVelocity;
+
+            handSprite.sprite = handOpen;
         }
     }
 }
