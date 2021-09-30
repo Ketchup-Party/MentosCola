@@ -14,6 +14,8 @@ namespace MentosCola {
 
         State state = State.NotPlaying;
 
+        [SerializeField] Camera.AnimatorCC animatorCC = default;
+
         void ChangeToNotPlaying() {
             Debug.Log("何もしていない状態です。");
             state = State.NotPlaying;
@@ -25,6 +27,7 @@ namespace MentosCola {
             Debug.Log("動きました。");
             state = State.Moving;
             hand.StartHaving();
+            animatorCC.OnReset();
         }
 
         public void ChangeToDropping() {
@@ -33,6 +36,7 @@ namespace MentosCola {
                 Debug.LogWarning("想定外のゲームループです。");
             }
             state = State.Dropping;
+            animatorCC.OnDrop();
         }
 
         public void ChangeToSplash() {
@@ -41,6 +45,7 @@ namespace MentosCola {
                 Debug.LogWarning("想定外のゲームループです。");
             }
             state = State.Splash;
+            animatorCC.OnSuccess();
 
             StartCoroutine(WaitSecondsThenStart(3));
         }
@@ -51,6 +56,7 @@ namespace MentosCola {
                 Debug.LogWarning("想定外のゲームループです。");
             }
             state = State.Miss;
+            animatorCC.OnMiss();
 
             StartCoroutine(WaitSecondsThenStart(3));
         }
