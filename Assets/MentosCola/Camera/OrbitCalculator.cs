@@ -7,7 +7,7 @@ namespace MentosCola.Camera {
     /// カメラの軌道計算関数まとめ
     /// NOTE: Mathf.Sin(), 引数はラジアン。
     /// </summary>
-    public class OrbitCalculator : MonoBehaviour {
+    public class OrbitCalculator {
         // NOTE: 
         // Vector3用もいる
 
@@ -17,20 +17,19 @@ namespace MentosCola.Camera {
             Vector2[] Origins = new Vector2[cameraNum];
             float angleSpace = 2 * Mathf.PI / cameraNum;
             for (int i = 0; i < cameraNum; i++) {
-                Origins[i] = GetCameraPos(Vector2.zero, radius, time, speed);
+                Origins[i] = GetCameraPos(Vector2.zero, radius, Mathf.Deg2Rad * time + angleSpace * i, speed);
             }
             return Origins;
         }
 
-        public static Vector2 CalcCirclePolarToRectPos(Vector2 origin, float radius, float theta) {
-            return new Vector2(radius * Mathf.Cos(theta), radius * Mathf.Sin(theta));
+        public static Vector2 CalcCirclePolarToRectPos(Vector2 origin, float radius, float theta, float speed) {
+            return new Vector2(radius * Mathf.Cos(theta * speed), radius * Mathf.Sin(theta * speed));
         }
 
         public static Vector2 GetCameraPos(Vector2 origin, float radius, float time, float speed) {
-            float theta = Mathf.Deg2Rad * time * speed;
-            return CalcCirclePolarToRectPos(origin, radius, theta);
+            float theta = Mathf.Deg2Rad * time;
+            return CalcCirclePolarToRectPos(origin, radius, theta, speed);
         }
-
 
     }
 }

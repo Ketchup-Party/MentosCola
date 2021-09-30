@@ -12,9 +12,9 @@ namespace MentosCola.Camera {
         }
 
         void Update() {
-            Vector2[] Origins = OrbitCalculator.GetCameraOrbitOrigins(cameraOrbit.Length, 2.0f, Time.time, 1.0f);
+            Vector2[] Origins = OrbitCalculator.GetCameraOrbitOrigins(cameraOrbit.Length, 2.0f, Time.time, 1000.0f);
             for (int i = 0; i < cameraOrbit.Length; i++) {
-                Debug.Log(Origins[i]);
+                // Debug.Log(Origins[i]);
                 cameraOrbit[i].position = Origins[i];
             }
         }

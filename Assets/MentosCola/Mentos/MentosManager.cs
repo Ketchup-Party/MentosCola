@@ -6,6 +6,8 @@ namespace MentosCola {
         [SerializeField] GameObject mentosPref = default;
         GameObject currentMentos = default;
 
+        [SerializeField] Camera.MentosSettingManager mentosSettingManager = default;
+
         Vector3 firstMentosPosition = new Vector3(0.7f, -1.6f, 0);
 
         public GameObject CreateMentos(Transform parentTransform) {
@@ -13,6 +15,7 @@ namespace MentosCola {
             newMentos.transform.localPosition = firstMentosPosition;
 
             currentMentos = newMentos;
+            mentosSettingManager.SetMentos(currentMentos);
 
             return newMentos;
         }
