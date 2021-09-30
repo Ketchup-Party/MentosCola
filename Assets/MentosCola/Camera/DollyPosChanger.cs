@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MentosCola.Test {
+namespace MentosCola.Camera.Test {
     /// <summary>DollyPosを無理やり動かす</summary>
     public class DollyPosChanger : MonoBehaviour {
         [SerializeField] Cinemachine.CinemachineVirtualCamera cmcamera = default;

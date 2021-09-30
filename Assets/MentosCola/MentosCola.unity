@@ -312,7 +312,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180613960}
-  m_LocalRotation: {x: 0.46955258, y: 0.23110901, z: -0.12883131, w: 0.8423251}
+  m_LocalRotation: {x: 0.46429422, y: 0.22170667, z: -0.12126443, w: 0.8488651}
   m_LocalPosition: {x: -1.2426777, y: 10.66198, z: -4.887017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -952,6 +952,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced5958aefce54022909fb2d53b302bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loopTime: 1
+  ease: 1
 --- !u!225 &533744435
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1431,7 +1433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &784665806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1993,7 +1995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 686164475}
-  m_PathPosition: 0
+  m_PathPosition: 0.7500031
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -2627,6 +2629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855258abae8224ceaab8ddcb87885519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animatorCC: {fileID: 484085194}
   hand: {fileID: 1140040320}
   mentosManager: {fileID: 1717779692}
   mentosAltitudeThreshold: -1
@@ -2821,8 +2824,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495696636}
-  m_LocalRotation: {x: 0.08385346, y: -0.54218185, z: 0.054494105, w: 0.83428884}
-  m_LocalPosition: {x: 9, y: 2, z: -4}
+  m_LocalRotation: {x: 0.22975291, y: -0.00000027747694, z: 0.000000065503414, w: 0.973249}
+  m_LocalPosition: {x: 0.0000021457672, y: 2, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 975417901}
