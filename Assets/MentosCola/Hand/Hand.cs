@@ -1,67 +1,68 @@
 using UnityEngine;
 
-namespace MentosCola
-{
+namespace MentosCola {
     /// <summary>メントスを動かす手</summary>
-    public class Hand : MonoBehaviour
-    {
-        enum Status
-        {
-            Moving,
-            Stopping
+    public class Hand : MonoBehaviour {
+        enum Status {
+            Having,
+            Released,
+            Stopping,
         }
 
-        Status state = Status.Moving;
-        [SerializeField] GameObject mentos = default;
-
-        /// <summary>メントス初速度計算用に前フレームのメントスの位置を記憶</summary>
-        Vector3 latestMentosPos = default;
+        Status state = Status.Released;
 
         [SerializeField] SpriteRenderer handSprite = default;
         [SerializeField] Sprite handOpen = default;
         [SerializeField] Sprite handClose = default;
 
-        void Awake()
-        {
-            latestMentosPos = mentos.transform.position;
+        [SerializeField] Vector3 startPosition = new Vector3(-10, 4, 0);
+
+        GameObject mentos = default;
+        [SerializeField] MentosManager mentosManager = default;
+
+        /// <summary>プレイ開始時</summary>
+        public void StartHaving() {
             handSprite.sprite = handClose;
+            this.transform.position = startPosition;
+            mentos = mentosManager.CreateMentos(this.gameObject.transform);
+            state = Status.Having;
         }
 
-        Vector3 mentosInitialVelocity = default;
         float speed = 0.03f;
 
-        void FixedUpdate()
-        {
-            if (this.state == Status.Moving)
-            {
-                transform.Translate(speed, 0, 0, Space.World);
-                float _current_rotation_speed = Mathf.Sin(3 * Time.time);
-                transform.Rotate(0, 0, _current_rotation_speed);
+        void FixedUpdate() {
+            if (this.state == Status.Stopping) return;
 
-                mentosInitialVelocity = (mentos.transform.position - latestMentosPos) / Time.fixedDeltaTime;
-                latestMentosPos = mentos.transform.position;
-            }
+            transform.Translate(speed, 0, 0, Space.World);
+            float _current_rotation_speed = Mathf.Sin(3 * Time.time);
+            transform.Rotate(0, 0, _current_rotation_speed);
         }
 
-        void Update()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
+        void Update() {
+            if (Input.GetMouseButtonDown(0)) {
                 Release();
             }
         }
 
+
+        [SerializeField] GameOnePlayLoopManager gameOnePlayLoopManager = default;
         /// <summary>メントスを離す</summary>
-        void Release()
-        {
-            Rigidbody mentosRb = mentos.GetComponent<Rigidbody>();
-            mentosRb.isKinematic = false;
-            mentosRb.useGravity = true;
+        void Release() {
+            if (this.state != Status.Having) {
+                return;
+            }
+            else {
+                Rigidbody mentosRb = mentos.GetComponent<Rigidbody>();
+                mentosRb.isKinematic = false;
+                mentosRb.useGravity = true;
 
-            mentos.transform.parent = null;
-            mentosRb.velocity = mentosInitialVelocity;
+                mentos.transform.parent = null;
+                mentosRb.velocity = mentosManager.GetCurrentMentosVelocity();
 
-            handSprite.sprite = handOpen;
+                handSprite.sprite = handOpen;
+                state = Status.Released;
+                gameOnePlayLoopManager.ChangeToDropping();
+            }
         }
     }
 }
