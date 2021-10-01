@@ -27,7 +27,7 @@ namespace MentosCola {
             Debug.Log("動きました。");
             state = State.Moving;
             hand.StartHaving();
-            animatorCC.OnReset();
+            animatorCC.OnPlay();
         }
 
         public void ChangeToDropping() {
