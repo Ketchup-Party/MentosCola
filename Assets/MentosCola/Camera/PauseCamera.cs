@@ -16,8 +16,12 @@ namespace MentosCola.Camera {
             SetCameraPosition();
         }
 
+        /// <summary>
+        /// カメラが追従する座標を設定する
+        /// OrbitSystem上で飛んでるカメラをランダムで選んで、設定する
+        /// </summary>
         void SetCameraPosition() {
-            Transform[] cameras = cameraOrbitSystem.GetPlanetCameras();
+            Transform[] cameras = cameraOrbitSystem.GetOrbitallyCameras();
             int cameraNum = Random.Range(0, cameras.Length);
             cmCamera.Follow = cameras[cameraNum];
         }
