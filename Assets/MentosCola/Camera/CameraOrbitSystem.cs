@@ -6,13 +6,17 @@ namespace MentosCola.Camera {
     /// <summary>カメラの軌道を制御するクラス</summary>
     public class CameraOrbitSystem : MonoBehaviour {
         Planet[] planetCamera;
+        [SerializeField] readonly float planetRotateSpeed = 0.1f;
+        [SerializeField] readonly float orbitSystemRadius = 10.0f;
+        [SerializeField] readonly Vector3 revolutionAxis = new Vector3(0.5f, 1f, 0.0f);
+
         void Awake() {
             planetCamera = this.GetComponentsInChildren<Planet>();
         }
 
         void Update() {
-            // Vector3[] Origins = OrbitCalculator.GetCameraOrbitOrigins(planetCamera.Length, Vector3.up, 10.0f, Time.time, 0.2f);
-            Vector3[] Origins = OrbitCalculator.GetCameraOrbitOrigins(planetCamera.Length, new Vector3(0.5f, 1f, 0f), 10.0f, Time.time, 1.0f);
+            // カメラを追従させる点を設定。太陽系で言うなら惑星の位置。
+            Vector3[] Origins = OrbitCalculator.GetCameraOrbitOrigins(planetCamera.Length, revolutionAxis, orbitSystemRadius, Time.time, planetRotateSpeed);
             for (int i = 0; i < planetCamera.Length; i++) {
                 planetCamera[i].SetOriginPos(Origins[i]);
             }
