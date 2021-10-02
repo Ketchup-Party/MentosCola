@@ -11,7 +11,8 @@ namespace MentosCola.Camera {
         }
 
         void Update() {
-            Vector3[] Origins = OrbitCalculator.GetCameraOrbitOrigins(planetCamera.Length, Vector3.up, 10.0f, Time.time, 0.2f);
+            // Vector3[] Origins = OrbitCalculator.GetCameraOrbitOrigins(planetCamera.Length, Vector3.up, 10.0f, Time.time, 0.2f);
+            Vector3[] Origins = OrbitCalculator.GetCameraOrbitOrigins(planetCamera.Length, new Vector3(0.5f, 1f, 0f), 10.0f, Time.time, 1.0f);
             for (int i = 0; i < planetCamera.Length; i++) {
                 planetCamera[i].SetOriginPos(Origins[i]);
             }
