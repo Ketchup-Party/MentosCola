@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4994672402404020252}
   - component: {fileID: 4994672402404020253}
   - component: {fileID: 4994672402404020242}
-  - component: {fileID: 4994672402404020243}
   - component: {fileID: 4994672402404020255}
+  - component: {fileID: -539823403995984744}
   m_Layer: 0
   m_Name: Mentos
   m_TagString: Mentos
@@ -84,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4994672402404020243
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4994672402404020240}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4994672402404020255
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -113,3 +100,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!64 &-539823403995984744
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4994672402404020240}
+  m_Material: {fileID: 13400000, guid: c788bb10b68b4c448821469acecdf48b, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
