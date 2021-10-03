@@ -6,6 +6,8 @@ namespace MentosCola {
         void OnTriggerEnter(Collider other) {
             if (other.CompareTag("Mentos")) {
                 Splash();
+                // バグ回避のため入ったメントスは削除する
+                Destroy(other.gameObject);
             }
         }
 
