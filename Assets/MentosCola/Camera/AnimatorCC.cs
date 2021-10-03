@@ -22,8 +22,8 @@ namespace MentosCola.Camera {
             animator.SetTrigger("Miss");
         }
 
-        public void OnReset() {
-            animator.SetTrigger("Reset");
+        public void OnPlay() {
+            animator.SetTrigger("Play");
         }
 
     }
