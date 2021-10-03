@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -14,12 +15,22 @@ namespace MentosCola {
 
         State state = State.NotPlaying;
 
+        // 今回の結果、受け渡し用の変数
+        OneTrialResult thisTimeResult = default;
+
         [SerializeField] Camera.AnimatorCC animatorCC = default;
 
-        void ChangeToNotPlaying() {
-            Debug.Log("何もしていない状態です。");
-            state = State.NotPlaying;
+        [SerializeField] OneLoopScoreManager oneLoopScoreManager = default;
+
+        // このループでのプレイ回数
+        int _playTime = 0;
+
+        public void StartFirstPlay() {
+            _playTime = 0;
+            oneLoopScoreManager.Reset();
+            ChangeToMoving();
         }
+
 
         [SerializeField] Hand hand = default;
 
@@ -28,15 +39,26 @@ namespace MentosCola {
             state = State.Moving;
             hand.StartHaving();
             animatorCC.OnPlay();
+
+            _playTime++;
+            thisTimeResult = default(OneTrialResult);
         }
 
-        public void ChangeToDropping() {
+
+        void ChangeToNotPlaying() {
+            Debug.Log("何もしていない状態です。");
+            state = State.NotPlaying;
+        }
+
+        public void ChangeToDropping(OneTrialResult result) {
             Debug.Log("落としました。");
             if (state != State.Moving) {
                 Debug.LogWarning("想定外のゲームループです。");
             }
             state = State.Dropping;
             animatorCC.OnDrop();
+
+            thisTimeResult = result;
         }
 
         public void ChangeToSplash() {
@@ -47,6 +69,8 @@ namespace MentosCola {
             state = State.Splash;
             animatorCC.OnSuccess();
 
+            bool hasSplashed = true;
+            DoScoreProcessing(hasSplashed);
             StartCoroutine(WaitSecondsThenStart(3));
         }
 
@@ -58,7 +82,15 @@ namespace MentosCola {
             state = State.Miss;
             animatorCC.OnMiss();
 
+            bool hasSplashed = false;
+            DoScoreProcessing(hasSplashed);
             StartCoroutine(WaitSecondsThenStart(3));
+        }
+
+        /// <summary>スコア処理をする</summary>
+        void DoScoreProcessing(bool hasSplashed) {
+            thisTimeResult.SetSuccessResultInfo(hasSplashed, DateTime.Now);
+            oneLoopScoreManager.CalculateThisTimeScore(thisTimeResult);
         }
 
         [SerializeField] MentosManager mentosManager = default;

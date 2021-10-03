@@ -47,7 +47,7 @@ namespace MentosCola {
         public void ChangeToPlay() {
             state = State.Play;
             DeactivateCanvas();
-            gameOnePlayLoopManager.ChangeToMoving();
+            gameOnePlayLoopManager.StartFirstPlay();
         }
 
         [SerializeField] Canvas resultCanvas = default;
