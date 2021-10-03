@@ -25,9 +25,12 @@ namespace MentosCola {
         // このループでのプレイ回数
         int _playTime = 0;
 
+        // プレイ上限回数
+        readonly int _maximumPlayTime = 10;
+
         public void StartFirstPlay() {
             _playTime = 0;
-            oneLoopScoreManager.Reset();
+            oneLoopScoreManager.Reset(_maximumPlayTime);
             ChangeToMoving();
         }
 
@@ -90,7 +93,7 @@ namespace MentosCola {
         /// <summary>スコア処理をする</summary>
         void DoScoreProcessing(bool hasSplashed) {
             thisTimeResult.SetSuccessResultInfo(hasSplashed, DateTime.Now);
-            oneLoopScoreManager.CalculateThisTimeScore(thisTimeResult);
+            oneLoopScoreManager.CalculateThisTimeScore(thisTimeResult, _playTime);
         }
 
         [SerializeField] MentosManager mentosManager = default;
@@ -111,11 +114,19 @@ namespace MentosCola {
             }
         }
 
+        [SerializeField] GameLoopManager gameLoopManager = default;
         IEnumerator WaitSecondsThenStart(int waitSeconds) {
             ChangeToNotPlaying();
 
             yield return new WaitForSeconds(waitSeconds);
-            ChangeToMoving();
+
+            if (_playTime >= _maximumPlayTime) {
+                int score = oneLoopScoreManager.GetTotalScore();
+                gameLoopManager.ChangeToResult(score);
+            }
+            else {
+                ChangeToMoving();
+            }
         }
     }
 }
