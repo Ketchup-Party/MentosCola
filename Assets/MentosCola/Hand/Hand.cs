@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace MentosCola {
@@ -52,17 +53,29 @@ namespace MentosCola {
                 return;
             }
             else {
+                // メントスを離す
                 Rigidbody mentosRb = mentos.GetComponent<Rigidbody>();
                 mentosRb.isKinematic = false;
                 mentosRb.useGravity = true;
 
                 mentos.transform.parent = null;
-                mentosRb.velocity = mentosManager.GetCurrentMentosVelocity();
+                Vector3 mentosVelocity = mentosManager.GetCurrentMentosVelocity();
+                mentosRb.velocity = mentosVelocity;
 
+                // 手を開ける
                 handSprite.sprite = handOpen;
                 state = Status.Released;
-                gameOnePlayLoopManager.ChangeToDropping();
+
+                // 離した情報を伝達する
+                OneTrialResult oneTrialResult = new OneTrialResult();
+                float firstSpeed = mentosVelocity.magnitude;
+                float distance = Vector3.Distance(mentos.transform.position, splashTargetPoint.transform.position);
+                DateTime releaseTime = DateTime.Now;
+                oneTrialResult.SetReleaseInfo(firstSpeed, distance, releaseTime);
+                gameOnePlayLoopManager.ChangeToDropping(oneTrialResult);
             }
         }
+        // 離した距離算出用
+        [SerializeField] GameObject splashTargetPoint = default;
     }
 }

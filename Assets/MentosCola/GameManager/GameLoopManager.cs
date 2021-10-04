@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MentosCola {
     /// <summary>
@@ -47,12 +48,14 @@ namespace MentosCola {
         public void ChangeToPlay() {
             state = State.Play;
             DeactivateCanvas();
-            gameOnePlayLoopManager.ChangeToMoving();
+            gameOnePlayLoopManager.StartFirstPlay();
         }
 
         [SerializeField] Canvas resultCanvas = default;
-        public void ChangeToResult() {
+        [SerializeField] Text resultScoreText = default;
+        public void ChangeToResult(int score) {
             state = State.Result;
+            resultScoreText.text = score.ToString();
             ActivateCanvas(resultCanvas);
         }
 
