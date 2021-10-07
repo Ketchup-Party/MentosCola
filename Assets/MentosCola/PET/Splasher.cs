@@ -17,7 +17,7 @@ namespace MentosCola {
             OneTrialResult result = gameOnePlayLoopManager.ChangeToSplash();
 
             var main = splashParticle.main;
-            int startSpeed = result.GetScore() / 50;
+            int startSpeed = result.GetScore() / 300;
             main.startSpeed = new ParticleSystem.MinMaxCurve(startSpeed);
 
             splashParticle.Play();
