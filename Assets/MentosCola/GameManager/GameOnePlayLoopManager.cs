@@ -64,7 +64,7 @@ namespace MentosCola {
             thisTimeResult = result;
         }
 
-        public void ChangeToSplash() {
+        public OneTrialResult ChangeToSplash() {
             Debug.Log("入りました。");
             if (state != State.Dropping) {
                 Debug.LogWarning("想定外のゲームループです。");
@@ -75,6 +75,8 @@ namespace MentosCola {
             bool hasSplashed = true;
             DoScoreProcessing(hasSplashed);
             StartCoroutine(WaitSecondsThenStart(3));
+
+            return thisTimeResult;
         }
 
         void ChangeToMiss() {

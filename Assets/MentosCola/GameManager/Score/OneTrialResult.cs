@@ -28,6 +28,17 @@ namespace MentosCola {
         // 結果算出時間
         DateTime _resultTime;
 
+        int _score;
+
+        public int GetScore(){
+            if (!this._hasTrialEnded) {
+                Debug.LogError("まだ試行が終わっていないため、成功結果はわかりません。");
+                return -1;
+            }
+
+            return _score;
+        }
+
         public void SetReleaseInfo(float firstSpeed, float distanceWhenRelease, DateTime releaseTime) {
             this._firstSpeed = firstSpeed;
             this._distanceWhenRelease = distanceWhenRelease;
@@ -48,7 +59,10 @@ namespace MentosCola {
             }
 
             double elapsedMilliSeconds = (_resultTime - _releaseTime).TotalMilliseconds;
-            return ScoreCalculator.Calculate(_hasSplashed, (float)elapsedMilliSeconds, _firstSpeed, _distanceWhenRelease, consecutiveTime);
+            
+            _score = ScoreCalculator.Calculate(_hasSplashed, (float)elapsedMilliSeconds, _firstSpeed, _distanceWhenRelease, consecutiveTime);
+            return _score;
+
         }
     }
 }

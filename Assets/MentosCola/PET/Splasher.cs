@@ -12,8 +12,15 @@ namespace MentosCola {
         }
 
         [SerializeField] GameOnePlayLoopManager gameOnePlayLoopManager = default;
+        [SerializeField] ParticleSystem splashParticle = default;
         void Splash() {
-            gameOnePlayLoopManager.ChangeToSplash();
+            OneTrialResult result = gameOnePlayLoopManager.ChangeToSplash();
+
+            var main = splashParticle.main;
+            int startSpeed = result.GetScore() / 50;
+            main.startSpeed = new ParticleSystem.MinMaxCurve(startSpeed);
+
+            splashParticle.Play();
         }
     }
 }
