@@ -5355,7 +5355,7 @@ Transform:
   m_Children:
   - {fileID: 1516304957}
   m_Father: {fileID: 1238319475}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &276216563
 MonoBehaviour:
@@ -8432,6 +8432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1140040319}
   - component: {fileID: 1140040320}
+  - component: {fileID: 1140040321}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -8453,7 +8454,7 @@ Transform:
   - {fileID: 867561794}
   - {fileID: 1242755721}
   m_Father: {fileID: 1238319475}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1140040320
 MonoBehaviour:
@@ -8470,10 +8471,23 @@ MonoBehaviour:
   handSprite: {fileID: 867561795}
   handOpen: {fileID: 21300000, guid: e314e8ba8cccf7e4d9cea1ceddc4a5ca, type: 3}
   handClose: {fileID: 21300000, guid: 4cea641f29e25494f935ce720adab644, type: 3}
-  startPosition: {x: -10, y: 4, z: 0}
   mentosManager: {fileID: 1717779692}
+  handMover: {fileID: 1140040321}
   gameOnePlayLoopManager: {fileID: 1238319476}
   splashTargetPoint: {fileID: 824296752}
+--- !u!114 &1140040321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140040318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5813ce972c164b83beb469c3103233d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPosition: {x: -10, y: 5, z: 0}
 --- !u!1 &1156062174
 GameObject:
   m_ObjectHideFlags: 0
@@ -8938,6 +8952,7 @@ Transform:
   m_Children:
   - {fileID: 640889137}
   - {fileID: 979834141}
+  - {fileID: 1243178036}
   - {fileID: 1140040319}
   - {fileID: 1717779693}
   - {fileID: 276216562}
@@ -8967,6 +8982,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4994672402404020252, guid: be94a2bca76a444d99bc38fa10add77d, type: 3}
   m_PrefabInstance: {fileID: 4994672401161642645}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1243178035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1243178036}
+  m_Layer: 0
+  m_Name: Wrist
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1243178036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243178035}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.5, y: 6.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1238319475}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1253263300
 GameObject:
   m_ObjectHideFlags: 0
@@ -10066,7 +10111,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1238319475}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1725715269
 GameObject:
@@ -11533,7 +11578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4994672402404020252, guid: be94a2bca76a444d99bc38fa10add77d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4994672402404020252, guid: be94a2bca76a444d99bc38fa10add77d, type: 3}
       propertyPath: m_LocalPosition.x

@@ -16,27 +16,17 @@ namespace MentosCola {
         [SerializeField] Sprite handOpen = default;
         [SerializeField] Sprite handClose = default;
 
-        [SerializeField] Vector3 startPosition = new Vector3(-10, 4, 0);
-
         GameObject mentos = default;
         [SerializeField] MentosManager mentosManager = default;
+
+        [SerializeField] HandMover handMover = default;
 
         /// <summary>プレイ開始時</summary>
         public void StartHaving() {
             handSprite.sprite = handClose;
-            this.transform.position = startPosition;
             mentos = mentosManager.CreateMentos(this.gameObject.transform);
             state = Status.Having;
-        }
-
-        float speed = 0.03f;
-
-        void FixedUpdate() {
-            if (this.state == Status.Stopping) return;
-
-            transform.Translate(speed, 0, 0, Space.World);
-            float _current_rotation_speed = Mathf.Sin(3 * Time.time);
-            transform.Rotate(0, 0, _current_rotation_speed);
+            handMover.Reset();
         }
 
         void Update() {
@@ -44,7 +34,6 @@ namespace MentosCola {
                 Release();
             }
         }
-
 
         [SerializeField] GameOnePlayLoopManager gameOnePlayLoopManager = default;
         /// <summary>メントスを離す</summary>
