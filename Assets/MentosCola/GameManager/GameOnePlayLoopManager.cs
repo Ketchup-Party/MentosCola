@@ -28,6 +28,9 @@ namespace MentosCola {
         // プレイ上限回数
         readonly int _maximumPlayTime = 10;
 
+        // スコアアニメーションするときのクラス
+        [SerializeField] Score.ScoreAnimator scoreAnimator = default;
+
         public void StartFirstPlay() {
             _playTime = 0;
             oneLoopScoreManager.Reset(_maximumPlayTime);
@@ -71,6 +74,7 @@ namespace MentosCola {
             }
             state = State.Splash;
             animatorCC.OnSuccess();
+            scoreAnimator.AnimateScore();
 
             bool hasSplashed = true;
             DoScoreProcessing(hasSplashed);
