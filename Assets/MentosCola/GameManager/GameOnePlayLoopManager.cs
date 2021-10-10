@@ -34,6 +34,7 @@ namespace MentosCola {
         public void StartFirstPlay() {
             _playTime = 0;
             oneLoopScoreManager.Reset(_maximumPlayTime);
+            scoreAnimator.ResetText();
             ChangeToMoving();
         }
 

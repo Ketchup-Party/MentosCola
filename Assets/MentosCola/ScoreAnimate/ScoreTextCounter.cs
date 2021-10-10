@@ -71,5 +71,9 @@ namespace MentosCola.Score {
                 animTime)
             );
         }
+
+        public void ResetScore(){
+            displayScore = 0.0f;
+        }
     }
 }

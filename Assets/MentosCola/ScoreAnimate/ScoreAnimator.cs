@@ -15,6 +15,9 @@ namespace MentosCola.Score {
         [SerializeField] ScoreTextCounter currentTrialTextCounter = default;
         [SerializeField] ScoreTextCounter totalScoreTextCounter = default;
 
+        // 連続成功回数を知るため
+        [SerializeField] OneLoopScoreManager oneLoopScoreManager = default;
+
         /// <summary>
         /// 結果をアニメーション表示する
         /// 入った時に呼び出す
@@ -26,12 +29,13 @@ namespace MentosCola.Score {
             float speed = result.GetFirstSpeed();
             float distance = result.GetDistanceWhenRelease();
             int currentTrialScore = result.GetScore();
+            int combo = oneLoopScoreManager.GetPreviouslyConsecutiveTime();
 
             // パネルを出現させる
             detailPanelMover.DisplayPanel();
 
             // 点数アニメーション
-            AnimateText(time, speed, distance, currentTrialScore);
+            AnimateText(time, speed, distance, combo, currentTrialScore);
         }
 
         /// <summary>
@@ -41,13 +45,23 @@ namespace MentosCola.Score {
         /// <param name="time">時間スコア</param>
         /// <param name="speed">速度スコア</param>
         /// <param name="distance">距離スコア</param>
-        void AnimateText(float time, float speed, float distance, int currentTrialScore){
+        void AnimateText(float time, float speed, float distance, int combo, int currentTrialScore){
             float delayTime = 1.0f;
             timeTextCounter.IncrementNumber(0.0f, time, delayTime * 0.0f);
             speedTextCounter.IncrementNumber(0.0f, speed, delayTime * 1.0f);
             distanceTextCounter.IncrementNumber(0.0f, distance, delayTime * 2.0f);
             currentTrialTextCounter.IncrementNumber(0.0f, currentTrialScore, delayTime * 3.0f);
+            comboTextCounter.IncrementNumber(0.0f, combo, delayTime * 4.0f);
             totalScoreTextCounter.IncrementNumber(currentTrialScore, delayTime * 5.0f);
+        }
+
+        public void ResetText(){
+            timeTextCounter.ResetScore();
+            speedTextCounter.ResetScore();
+            distanceTextCounter.ResetScore();
+            currentTrialTextCounter.ResetScore();
+            comboTextCounter.ResetScore();
+            totalScoreTextCounter.ResetScore();
         }
     }
 }

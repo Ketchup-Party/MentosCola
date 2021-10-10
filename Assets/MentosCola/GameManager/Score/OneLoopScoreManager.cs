@@ -16,7 +16,6 @@ namespace MentosCola {
         // プレイ回数の上限。
         int maximumPlayTime;
 
-        [SerializeField] Text scoreText = default;
         [SerializeField] Text splashResultIcons = default;
 
         OneTrialResult[] results;
@@ -25,8 +24,6 @@ namespace MentosCola {
 
             totalScore = 0;
             previouslyConsecutiveTime = 0;
-
-            scoreText.text = totalScore.ToString();
 
             results = new OneTrialResult[maximumPlayTime];
             SetSplashResultIcons();
@@ -37,8 +34,6 @@ namespace MentosCola {
         public int CalculateThisTimeScore(OneTrialResult thisTimeResult, int playTime) {
             int score = thisTimeResult.CalculateScore(previouslyConsecutiveTime);
             totalScore += score;
-
-            scoreText.text = totalScore.ToString();
 
             results[playTime - 1] = thisTimeResult;
             SetSplashResultIcons();
@@ -75,6 +70,10 @@ namespace MentosCola {
             }
 
             splashResultIcons.text = new String(resultIcons);
+        }
+
+        public int GetPreviouslyConsecutiveTime(){
+            return previouslyConsecutiveTime;
         }
     }
 }
