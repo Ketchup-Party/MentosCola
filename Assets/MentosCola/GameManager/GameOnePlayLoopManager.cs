@@ -28,9 +28,13 @@ namespace MentosCola {
         // プレイ上限回数
         readonly int _maximumPlayTime = 10;
 
+        // スコアアニメーションするときのクラス
+        [SerializeField] Score.ScoreAnimator scoreAnimator = default;
+
         public void StartFirstPlay() {
             _playTime = 0;
             oneLoopScoreManager.Reset(_maximumPlayTime);
+            scoreAnimator.ResetText();
             ChangeToMoving();
         }
 
@@ -76,6 +80,8 @@ namespace MentosCola {
             DoScoreProcessing(hasSplashed);
             StartCoroutine(WaitSecondsThenStart(3));
 
+            scoreAnimator.AnimateScore(thisTimeResult);
+            
             return thisTimeResult;
         }
 
