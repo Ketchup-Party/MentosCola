@@ -55,38 +55,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   intensity:
-    overrideState: 0
-    value: 12.4
+    overrideState: 1
+    value: 11.45
   threshold:
-    overrideState: 0
+    overrideState: 1
     value: 0.8
   softKnee:
-    overrideState: 0
+    overrideState: 1
     value: 0.436
   clamp:
-    overrideState: 0
+    overrideState: 1
     value: 65470.57
   diffusion:
-    overrideState: 0
+    overrideState: 1
     value: 7
   anamorphicRatio:
-    overrideState: 0
+    overrideState: 1
     value: 0
   color:
-    overrideState: 0
-    value: {r: 0.038573146, g: 1, b: 0, a: 1}
+    overrideState: 1
+    value: {r: 0.13777146, g: 0.6792453, b: 0.39400142, a: 1}
   fastMode:
-    overrideState: 0
+    overrideState: 1
     value: 0
   dirtTexture:
-    overrideState: 0
+    overrideState: 1
     value: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
     defaultState: 1
   dirtIntensity:
-    overrideState: 0
+    overrideState: 1
     value: 0
