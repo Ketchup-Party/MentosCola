@@ -31,7 +31,7 @@ namespace MentosCola {
         /// 手が一定範囲内かどうか判定する。
         /// </summary>
         /// <returns>範囲内ならtrue, 範囲外ならfalse。</returns>
-        bool IsWithinRange() {
+        bool JudgeIsWithinRange() {
             float stageXMin = -100.0f;
             float stageXMax = 100.0f;
             float stageYMin = -100.0f;
@@ -49,7 +49,7 @@ namespace MentosCola {
 
         // Update is called once per frame
         void FixedUpdate() {
-            if (IsWithinRange()) {
+            if (JudgeIsWithinRange()) {
                 MoveList[thisTimeMove]();
             }
         }
