@@ -56,8 +56,8 @@ namespace MentosCola {
 
         void SetSplashResultIcons() {
             char unplayIcon = '-';
-            char splashIcon = '●';
-            char missIcon = '×';
+            char splashIcon = 'o';
+            char missIcon = 'x';
 
             char[] resultIcons = new char[maximumPlayTime];
             for (int i = 0; i < maximumPlayTime; ++i) {
