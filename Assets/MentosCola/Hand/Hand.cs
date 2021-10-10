@@ -44,7 +44,6 @@ namespace MentosCola {
             else {
                 // メントスを離す
                 Rigidbody mentosRb = mentos.GetComponent<Rigidbody>();
-                mentosRb.isKinematic = false;
                 mentosRb.useGravity = true;
 
                 mentos.transform.parent = null;

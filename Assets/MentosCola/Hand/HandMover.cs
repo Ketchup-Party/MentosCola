@@ -27,9 +27,31 @@ namespace MentosCola {
             };
         }
 
+        /// <summary>
+        /// 手が一定範囲内かどうか判定する。
+        /// </summary>
+        /// <returns>範囲内ならtrue, 範囲外ならfalse。</returns>
+        bool JudgeIsWithinRange() {
+            float stageXMin = -100.0f;
+            float stageXMax = 100.0f;
+            float stageYMin = -100.0f;
+            float stageYMax = 100.0f;
+
+            Vector3 handPos = this.gameObject.transform.position;
+            if (stageXMin < handPos.x && handPos.x < stageXMax &&
+                stageYMin < handPos.y && handPos.y < stageYMax) {
+                return true;
+            }
+
+            Debug.Log("手が範囲外にあります。");
+            return false;
+        }
+
         // Update is called once per frame
         void FixedUpdate() {
-            MoveList[thisTimeMove]();
+            if (JudgeIsWithinRange()) {
+                MoveList[thisTimeMove]();
+            }
         }
 
         /// <summary>
