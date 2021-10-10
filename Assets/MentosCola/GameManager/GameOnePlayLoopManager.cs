@@ -74,12 +74,13 @@ namespace MentosCola {
             }
             state = State.Splash;
             animatorCC.OnSuccess();
-            scoreAnimator.AnimateScore();
 
             bool hasSplashed = true;
             DoScoreProcessing(hasSplashed);
             StartCoroutine(WaitSecondsThenStart(3));
 
+            scoreAnimator.AnimateScore(thisTimeResult);
+            
             return thisTimeResult;
         }
 
