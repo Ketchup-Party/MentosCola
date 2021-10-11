@@ -15,9 +15,8 @@ namespace MentosCola {
         }
 
         State state = State.Title;
-        [SerializeField] SaveDataManager saveDataManager = default;
 
-        void Awake() {
+        void Start() {
             ChangeToTitle();
         }
 
