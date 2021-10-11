@@ -48,11 +48,11 @@ namespace MentosCola.Score {
         void AnimateText(float time, float speed, float distance, int combo, int currentTrialScore){
             float delayTime = 1.0f;
             timeTextCounter.IncrementNumber(0.0f, time, delayTime * 0.0f);
-            speedTextCounter.IncrementNumber(0.0f, speed, delayTime * 1.0f);
-            distanceTextCounter.IncrementNumber(0.0f, distance, delayTime * 2.0f);
-            currentTrialTextCounter.IncrementNumber(0.0f, currentTrialScore, delayTime * 3.0f);
-            comboTextCounter.IncrementNumber(0.0f, combo, delayTime * 4.0f);
-            totalScoreTextCounter.IncrementNumber(currentTrialScore, delayTime * 5.0f);
+            speedTextCounter.IncrementNumber(0.0f, speed, delayTime * 0.0f);
+            distanceTextCounter.IncrementNumber(0.0f, distance, delayTime * 0.0f);
+            currentTrialTextCounter.IncrementNumber(0.0f, currentTrialScore, delayTime * 0.0f);
+            comboTextCounter.IncrementNumber(0.0f, combo, delayTime * 0.0f);
+            totalScoreTextCounter.IncrementNumber(currentTrialScore, delayTime * 3.0f);
         }
 
         public void ResetText(){
