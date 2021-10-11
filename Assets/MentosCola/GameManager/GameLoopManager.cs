@@ -15,30 +15,32 @@ namespace MentosCola {
         }
 
         State state = State.Title;
+        [SerializeField] SaveDataManager saveDataManager = default;
 
         void Awake() {
-            resultCanvas.enabled = false;
             ChangeToTitle();
         }
 
-        Canvas _activeCanvas = default;
+        [SerializeField] TitleCanvas titleCanvas = default;
+        [SerializeField] ResultCanvas resultCanvas = default;
+        // アクティブキャンバスが一つになるように管理したい
+        IStateSceneCanvas _activeStateSceneCanvas = default;
 
         void DeactivateCanvas() {
-            if (_activeCanvas == default(Canvas)) {
+            if (_activeStateSceneCanvas == default(IStateSceneCanvas)) {
                 return;
             }
 
-            _activeCanvas.enabled = false;
-            _activeCanvas = default;
+            _activeStateSceneCanvas.Deactivate();
+            _activeStateSceneCanvas = default;
 
         }
-        void ActivateCanvas(Canvas canvas) {
+        void ActivateCanvas(IStateSceneCanvas canvas) {
             DeactivateCanvas();
-            _activeCanvas = canvas;
-            _activeCanvas.enabled = true;
-        }
+            _activeStateSceneCanvas = canvas;
 
-        [SerializeField] Canvas titleCanvas = default;
+            _activeStateSceneCanvas.Activate();
+        }
 
         public void ChangeToTitle() {
             state = State.Title;
@@ -52,11 +54,9 @@ namespace MentosCola {
             gameOnePlayLoopManager.StartFirstPlay();
         }
 
-        [SerializeField] Canvas resultCanvas = default;
-        [SerializeField] Text resultScoreText = default;
         public void ChangeToResult(int score) {
             state = State.Result;
-            resultScoreText.text = score.ToString();
+            resultCanvas.SetNewScore(score);
             ActivateCanvas(resultCanvas);
         }
 

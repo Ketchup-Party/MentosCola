@@ -21,6 +21,7 @@ namespace MentosCola {
         [SerializeField] Camera.AnimatorCC animatorCC = default;
 
         [SerializeField] OneLoopScoreManager oneLoopScoreManager = default;
+        [SerializeField] SaveDataManager saveDataManager = default;
 
         // このループでのプレイ回数
         int _playTime = 0;
@@ -48,6 +49,7 @@ namespace MentosCola {
             animatorCC.OnPlay();
 
             _playTime++;
+            saveDataManager.UpdateTotalMentos();
             thisTimeResult = default(OneTrialResult);
         }
 
