@@ -17,6 +17,7 @@ namespace MentosCola {
         State state = State.Title;
 
         void Awake() {
+            resultCanvas.enabled = false;
             ChangeToTitle();
         }
 

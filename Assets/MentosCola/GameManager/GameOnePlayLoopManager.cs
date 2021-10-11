@@ -81,7 +81,7 @@ namespace MentosCola {
             StartCoroutine(WaitSecondsThenStart(3));
 
             scoreAnimator.AnimateScore(thisTimeResult);
-            
+
             return thisTimeResult;
         }
 
@@ -129,12 +129,19 @@ namespace MentosCola {
             yield return new WaitForSeconds(waitSeconds);
 
             if (_playTime >= _maximumPlayTime) {
-                int score = oneLoopScoreManager.GetTotalScore();
-                gameLoopManager.ChangeToResult(score);
+                EndOnePlayLoop();
             }
             else {
                 ChangeToMoving();
             }
+        }
+
+        /// <summary>１プレイループが終わったら呼び出す。</summary>
+        void EndOnePlayLoop() {
+            int score = oneLoopScoreManager.GetTotalScore();
+            gameLoopManager.ChangeToResult(score);
+
+            oneLoopScoreManager.EndOnePlayLoop();
         }
     }
 }

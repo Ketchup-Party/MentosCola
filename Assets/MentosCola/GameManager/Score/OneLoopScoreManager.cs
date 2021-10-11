@@ -19,6 +19,12 @@ namespace MentosCola {
         [SerializeField] Text splashResultIcons = default;
 
         OneTrialResult[] results;
+        [SerializeField] Canvas oneLoopScoreCanvas = default;
+
+        void Awake() {
+            oneLoopScoreCanvas.enabled = false;
+        }
+
         public void Reset(int maximumPlayTime) {
             this.maximumPlayTime = maximumPlayTime;
 
@@ -27,8 +33,8 @@ namespace MentosCola {
 
             results = new OneTrialResult[maximumPlayTime];
             SetSplashResultIcons();
+            oneLoopScoreCanvas.enabled = true;
         }
-
 
         /// <summary>一試行分</summary>
         public int CalculateThisTimeScore(OneTrialResult thisTimeResult, int playTime) {
@@ -72,8 +78,13 @@ namespace MentosCola {
             splashResultIcons.text = new String(resultIcons);
         }
 
-        public int GetPreviouslyConsecutiveTime(){
+        public int GetPreviouslyConsecutiveTime() {
             return previouslyConsecutiveTime;
+        }
+
+        /// <summary>１プレイループが終わったら呼び出す。</summary>
+        public void EndOnePlayLoop() {
+            oneLoopScoreCanvas.enabled = false;
         }
     }
 }
