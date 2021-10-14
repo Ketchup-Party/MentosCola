@@ -142,6 +142,7 @@ namespace MentosCola {
         void EndOnePlayLoop() {
             int score = oneLoopScoreManager.GetTotalScore();
             gameLoopManager.ChangeToResult(score);
+            animatorCC.OnTitle();
 
             oneLoopScoreManager.EndOnePlayLoop();
         }

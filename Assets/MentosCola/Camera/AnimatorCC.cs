@@ -26,5 +26,9 @@ namespace MentosCola.Camera {
             animator.SetTrigger("Play");
         }
 
+        public void OnTitle(){
+            animator.SetTrigger("Title");
+        }
+
     }
 }
