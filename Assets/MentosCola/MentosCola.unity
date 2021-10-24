@@ -7155,7 +7155,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712455572}
-  m_LocalRotation: {x: -0.053520326, y: -0.0049286345, z: -0.00026416394, w: 0.9985546}
+  m_LocalRotation: {x: -0.053520303, y: -0.0049286, z: -0.00026416196, w: 0.9985546}
   m_LocalPosition: {x: 3.4, y: 6.6, z: -34.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9381,7 +9381,7 @@ BoxCollider:
   m_GameObject: {fileID: 1140040318}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -10943,7 +10943,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495696636}
-  m_LocalRotation: {x: 0.22975291, y: -0.00000027779186, z: 0.00000006557776, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: -0.00000024429968, z: 0.000000057671322, w: 0.973249}
   m_LocalPosition: {x: 0.0000021457672, y: 2, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11390,11 +11390,11 @@ MonoBehaviour:
 
     http://dotween.demigiant.com/license.php
 
-    
 
-    
 
-    
+
+
+
 
     -------------------------------------------
 
@@ -11403,24 +11403,24 @@ MonoBehaviour:
 
     -------------------------------------------
 
-    Copyright 2015 The
-    Amatic SC Project Authors (https://github.com/googlefonts/AmaticSC)
+    Copyright 2015 The Amatic
+    SC Project Authors (https://github.com/googlefonts/AmaticSC)
 
-    
 
-    This
-    Font Software is licensed under the SIL Open Font License, Version 1.1.
+
+    This Font
+    Software is licensed under the SIL Open Font License, Version 1.1.
 
     This
     license is copied below, and is also available with a FAQ at:
 
     http://scripts.sil.org/OFL
 
-    
 
-    
 
-    
+
+
+
 
     -------------------------------------------
 
