@@ -41,7 +41,7 @@ namespace MentosCola {
             PlayerPrefs.SetInt(_highScoreKey, highScore);
         }
 
-        void DeleteAll() {
+        public void DeleteAll() {
             PlayerPrefs.DeleteKey(_totalMentosKey);
             PlayerPrefs.DeleteKey(_highScoreKey);
         }
