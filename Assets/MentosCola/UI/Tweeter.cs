@@ -15,7 +15,8 @@ namespace MentosCola {
             string text = "私のスコアは " + (score).ToString() + " 点でした!\n一緒にはじけませんか？\n";
 
             string escapedText = UnityWebRequest.EscapeURL(text);
-            string[] hashTags = { "メントスコーラゲーム", "KetchupParty" };
+            // string[] hashTags = { "メントスコーラゲーム", "KetchupParty" };
+            string[] hashTags = { "メントスコーラゲーム" };
 
             string escapedHashTag = UnityWebRequest.EscapeURL(hashTags[0]);
             for (int i = 1; i < hashTags.Length; ++i) {
