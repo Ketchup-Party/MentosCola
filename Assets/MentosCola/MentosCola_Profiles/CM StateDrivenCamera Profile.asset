@@ -1,33 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-168090485971401189
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  focusDistance:
-    overrideState: 1
-    value: 0.1
-  aperture:
-    overrideState: 1
-    value: 6.8
-  focalLength:
-    overrideState: 1
-    value: 118
-  kernelSize:
-    overrideState: 1
-    value: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,7 +13,6 @@ MonoBehaviour:
   m_Name: CM StateDrivenCamera Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: -168090485971401189}
   - {fileID: 3420477329598385950}
 --- !u!114 &3420477329598385950
 MonoBehaviour:
@@ -69,24 +40,24 @@ MonoBehaviour:
     overrideState: 1
     value: 0.436
   clamp:
-    overrideState: 1
-    value: 65470.57
+    overrideState: 0
+    value: 1
   diffusion:
     overrideState: 1
     value: 7
   anamorphicRatio:
-    overrideState: 1
+    overrideState: 0
     value: 0
   color:
     overrideState: 1
     value: {r: 0.13777146, g: 0.6792453, b: 0.39400142, a: 1}
   fastMode:
     overrideState: 1
-    value: 0
+    value: 1
   dirtTexture:
-    overrideState: 1
+    overrideState: 0
     value: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
     defaultState: 1
   dirtIntensity:
-    overrideState: 1
+    overrideState: 0
     value: 0
