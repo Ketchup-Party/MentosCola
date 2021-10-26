@@ -5217,7 +5217,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7773438, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5233,7 +5233,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180613960}
-  m_LocalRotation: {x: 0.47029412, y: 0.2305866, z: -0.12878335, w: 0.8420619}
+  m_LocalRotation: {x: 0.47029412, y: 0.23058665, z: -0.12878335, w: 0.8420618}
   m_LocalPosition: {x: -1.2426777, y: 10.66198, z: -4.887017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7139,7 +7139,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7773438, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -9381,7 +9381,7 @@ BoxCollider:
   m_GameObject: {fileID: 1140040318}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -10927,7 +10927,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7773438, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10943,7 +10943,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495696636}
-  m_LocalRotation: {x: 0.22975291, y: -0.00000027779186, z: 0.00000006557776, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: -0.00000024429968, z: 0.000000057671322, w: 0.973249}
   m_LocalPosition: {x: 0.0000021457672, y: 2, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11390,11 +11390,7 @@ MonoBehaviour:
 
     http://dotween.demigiant.com/license.php
 
-    
 
-    
-
-    
 
     -------------------------------------------
 
@@ -11403,24 +11399,19 @@ MonoBehaviour:
 
     -------------------------------------------
 
-    Copyright 2015 The
-    Amatic SC Project Authors (https://github.com/googlefonts/AmaticSC)
+    Copyright 2015 The Amatic
+    SC Project Authors (https://github.com/googlefonts/AmaticSC)
 
-    
 
-    This
-    Font Software is licensed under the SIL Open Font License, Version 1.1.
+    This Font
+    Software is licensed under the SIL Open Font License, Version 1.1.
 
     This
     license is copied below, and is also available with a FAQ at:
 
     http://scripts.sil.org/OFL
 
-    
 
-    
-
-    
 
     -------------------------------------------
 
@@ -11947,7 +11938,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7773438, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -13477,7 +13468,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7773438, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
