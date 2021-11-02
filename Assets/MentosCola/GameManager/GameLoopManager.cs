@@ -22,6 +22,7 @@ namespace MentosCola {
 
         [SerializeField] TitleCanvas titleCanvas = default;
         [SerializeField] ResultCanvas resultCanvas = default;
+        [SerializeField] PauseCanvas pauseCanvas = default;
         // アクティブキャンバスが一つになるように管理したい
         IStateSceneCanvas _activeStateSceneCanvas = default;
 
@@ -59,9 +60,22 @@ namespace MentosCola {
             ActivateCanvas(resultCanvas);
         }
 
-        public void ChangeToPause() {
+        void ChangeToPause() {
             state = State.Pause;
+            ActivateCanvas(pauseCanvas);
+        }
+
+        void ChangeFromPause(){
+            state = State.Play;
             DeactivateCanvas();
+        }
+
+        public void SwitchPause(){
+            if(state == State.Play){
+                ChangeToPause();
+            }else if(state == State.Pause){
+                ChangeFromPause();
+            }
         }
     }
 }
