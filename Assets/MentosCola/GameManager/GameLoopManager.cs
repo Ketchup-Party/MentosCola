@@ -10,8 +10,7 @@ namespace MentosCola {
         enum State {
             Title,
             Play,
-            Result,
-            Pause
+            Result
         }
 
         State state = State.Title;
@@ -57,11 +56,6 @@ namespace MentosCola {
             state = State.Result;
             resultCanvas.SetNewScore(score);
             ActivateCanvas(resultCanvas);
-        }
-
-        public void ChangeToPause() {
-            state = State.Pause;
-            DeactivateCanvas();
         }
     }
 }

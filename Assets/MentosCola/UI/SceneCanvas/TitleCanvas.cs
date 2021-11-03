@@ -17,10 +17,18 @@ namespace MentosCola {
             canvas.enabled = false;
         }
         public void Activate() {
-            totalMentosText.text = saveDataManager.GetTotalMentos().ToString();
-            highScoreText.text = saveDataManager.GetHighScore().ToString();
+            RefreshScoreText();
 
             canvas.enabled = true;
+        }
+
+        /// <summary>
+        /// スコアの表示を更新する。
+        /// セーブデータを消したときに、外部からここだけ呼びたい。
+        /// </summary>
+        public void RefreshScoreText(){
+            totalMentosText.text = saveDataManager.GetTotalMentos().ToString();
+            highScoreText.text = saveDataManager.GetHighScore().ToString();
         }
 
     }

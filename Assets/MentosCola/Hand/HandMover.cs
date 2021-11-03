@@ -7,6 +7,7 @@ namespace MentosCola {
 
         // 動きストラテジーリスト
         IHandMoveStrategy[] moveStrategies = {
+            new HandStopStrategy(),
             new HandWaveStrategy(),
             new HandSimpleVibrationStrategy(),
             new HandCircularMoveStrategy()
@@ -20,8 +21,21 @@ namespace MentosCola {
         public void Reset() {
             this.transform.position = startPosition;
 
-            thisTimeMove = UnityEngine.Random.Range(0, moveStrategies.Length);
+            /// <summary>
+            /// TODO: あとでいいやり方考える
+            /// ゼロ番目は動かないストラテジーだとする。
+            /// </summary>
+            thisTimeMove = UnityEngine.Random.Range(1, moveStrategies.Length);
             moveStrategies[thisTimeMove].SetUp(startPosition);
+        }
+
+        /// <summary>
+        /// アイドル状態（ほぼ起動時の状態）にする機能
+        /// タイトル画面に戻るときに呼ばれる
+        /// </summary>
+        public void DoIdle(){
+            this.transform.position = startPosition;
+            thisTimeMove = 0;
         }
 
         /// <summary>

@@ -32,6 +32,9 @@ namespace MentosCola {
         // スコアアニメーションするときのクラス
         [SerializeField] Score.ScoreAnimator scoreAnimator = default;
 
+        // ミス判定、成功判定したときの待機時間のコルーチン（あとで止めたい時がある）
+        Coroutine waitCoroutine = default;
+
         public void StartFirstPlay() {
             _playTime = 0;
             oneLoopScoreManager.Reset(_maximumPlayTime);
@@ -80,7 +83,7 @@ namespace MentosCola {
 
             bool hasSplashed = true;
             DoScoreProcessing(hasSplashed);
-            StartCoroutine(WaitSecondsThenStart(3));
+            waitCoroutine = StartCoroutine(WaitSecondsThenStart(3));
 
             scoreAnimator.AnimateScore(thisTimeResult);
 
@@ -97,7 +100,31 @@ namespace MentosCola {
 
             bool hasSplashed = false;
             DoScoreProcessing(hasSplashed);
-            StartCoroutine(WaitSecondsThenStart(3));
+            waitCoroutine = StartCoroutine(WaitSecondsThenStart(3));
+        }
+
+        [SerializeField] PauseCanvas pauseCanvas = default;
+
+        void Pause() {
+            if (state == State.NotPlaying) return;
+            pauseCanvas.Activate();
+            Time.timeScale = 0.0f;
+        }
+
+        void Resume() {
+            pauseCanvas.Deactivate();
+            Time.timeScale = 1.0f;
+        }
+
+        public void SwitchPause() {
+            bool isNotPausing = !Mathf.Approximately(Time.timeScale, 0f);
+
+            if (isNotPausing) {
+                Pause();
+            }
+            else {
+                Resume();
+            }
         }
 
         /// <summary>スコア処理をする</summary>
@@ -126,8 +153,6 @@ namespace MentosCola {
 
         [SerializeField] GameLoopManager gameLoopManager = default;
         IEnumerator WaitSecondsThenStart(int waitSeconds) {
-            ChangeToNotPlaying();
-
             yield return new WaitForSeconds(waitSeconds);
 
             if (_playTime >= _maximumPlayTime) {
@@ -140,11 +165,28 @@ namespace MentosCola {
 
         /// <summary>１プレイループが終わったら呼び出す。</summary>
         void EndOnePlayLoop() {
+            ChangeToNotPlaying();
             int score = oneLoopScoreManager.GetTotalScore();
             gameLoopManager.ChangeToResult(score);
             animatorCC.OnTitle();
 
             oneLoopScoreManager.EndOnePlayLoop();
+        }
+
+        /// <summary>タイトル画面に戻るときに呼び出す。</summary>
+        public void ResetPlayLoop() {
+            Time.timeScale = 1.0f;
+            hand.InitializeState();
+            animatorCC.OnTitle();
+            ChangeToNotPlaying();
+            oneLoopScoreManager.EndOnePlayLoop();
+
+            // ミス判定、成功判定が出た後はコルーチン内の処理が続けられるので、止める。
+            if (waitCoroutine != default(Coroutine)) {
+                StopCoroutine(waitCoroutine);
+                waitCoroutine = default;
+            }
+            gameLoopManager.ChangeToTitle();
         }
     }
 }
