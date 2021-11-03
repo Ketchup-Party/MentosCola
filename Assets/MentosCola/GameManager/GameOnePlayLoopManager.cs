@@ -103,6 +103,30 @@ namespace MentosCola {
             waitCoroutine = StartCoroutine(WaitSecondsThenStart(3));
         }
 
+        [SerializeField] PauseCanvas pauseCanvas = default;
+
+        void Pause() {
+            if (state == State.NotPlaying) return;
+            pauseCanvas.Activate();
+            Time.timeScale = 0.0f;
+        }
+
+        void Resume() {
+            pauseCanvas.Deactivate();
+            Time.timeScale = 1.0f;
+        }
+
+        public void SwitchPause() {
+            bool isNotPausing = !Mathf.Approximately(Time.timeScale, 0f);
+
+            if (isNotPausing) {
+                Pause();
+            }
+            else {
+                Resume();
+            }
+        }
+
         /// <summary>スコア処理をする</summary>
         void DoScoreProcessing(bool hasSplashed) {
             thisTimeResult.SetSuccessResultInfo(hasSplashed, DateTime.Now);
@@ -129,8 +153,6 @@ namespace MentosCola {
 
         [SerializeField] GameLoopManager gameLoopManager = default;
         IEnumerator WaitSecondsThenStart(int waitSeconds) {
-            ChangeToNotPlaying();
-
             yield return new WaitForSeconds(waitSeconds);
 
             if (_playTime >= _maximumPlayTime) {
@@ -143,6 +165,7 @@ namespace MentosCola {
 
         /// <summary>１プレイループが終わったら呼び出す。</summary>
         void EndOnePlayLoop() {
+            ChangeToNotPlaying();
             int score = oneLoopScoreManager.GetTotalScore();
             gameLoopManager.ChangeToResult(score);
             animatorCC.OnTitle();
@@ -151,17 +174,19 @@ namespace MentosCola {
         }
 
         /// <summary>タイトル画面に戻るときに呼び出す。</summary>
-        public void ResetPlayLoop(){
+        public void ResetPlayLoop() {
+            Time.timeScale = 1.0f;
             hand.InitializeState();
             animatorCC.OnTitle();
             ChangeToNotPlaying();
             oneLoopScoreManager.EndOnePlayLoop();
 
             // ミス判定、成功判定が出た後はコルーチン内の処理が続けられるので、止める。
-            if(waitCoroutine != default(Coroutine)){
+            if (waitCoroutine != default(Coroutine)) {
                 StopCoroutine(waitCoroutine);
                 waitCoroutine = default;
             }
+            gameLoopManager.ChangeToTitle();
         }
     }
 }
