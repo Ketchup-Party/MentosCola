@@ -31,6 +31,7 @@ namespace MentosCola {
 
         void Update() {
             if (Input.GetMouseButtonDown(0)) {
+                if(Mathf.Approximately(Time.timeScale, 0f)) return;
                 Release();
             }
         }
@@ -65,5 +66,12 @@ namespace MentosCola {
         }
         // 離した距離算出用
         [SerializeField] GameObject splashTargetPoint = default;
+
+
+        public void InitializeState(){
+            handSprite.sprite = handClose;
+            state = Status.Stopping;
+            handMover.DoIdle();
+        }
     }
 }

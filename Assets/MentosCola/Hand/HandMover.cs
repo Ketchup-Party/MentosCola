@@ -24,6 +24,10 @@ namespace MentosCola {
             moveStrategies[thisTimeMove].SetUp(startPosition);
         }
 
+        public void DoIdle(){
+            this.transform.position = startPosition;
+        }
+
         /// <summary>
         /// 手が一定範囲内かどうか判定する。
         /// </summary>
@@ -49,5 +53,8 @@ namespace MentosCola {
                 moveStrategies[thisTimeMove].Move(this.transform);
             }
         }
+
+
+
     }
 }

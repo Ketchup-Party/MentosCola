@@ -146,5 +146,13 @@ namespace MentosCola {
 
             oneLoopScoreManager.EndOnePlayLoop();
         }
+
+        /// <summary>タイトル画面に戻るときに呼び出す。</summary>
+        public void ResetPlayLoop(){
+            hand.InitializeState();
+            animatorCC.OnTitle();
+            ChangeToNotPlaying();
+            oneLoopScoreManager.EndOnePlayLoop();
+        }
     }
 }

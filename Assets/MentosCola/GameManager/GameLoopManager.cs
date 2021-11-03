@@ -45,6 +45,7 @@ namespace MentosCola {
         public void ChangeToTitle() {
             state = State.Title;
             ActivateCanvas(titleCanvas);
+            gameOnePlayLoopManager.ResetPlayLoop();
         }
 
         [SerializeField] GameOnePlayLoopManager gameOnePlayLoopManager = default;
