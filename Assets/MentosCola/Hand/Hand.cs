@@ -31,6 +31,8 @@ namespace MentosCola {
 
         void Update() {
             if (Input.GetMouseButtonDown(0)) {
+                // timeScaleがゼロだったら無視
+                // NOTE: Panel作ってクリックイベントで拾うやり方のほうがスマートだと思うがとりあえず今回はこれで妥協
                 if(Mathf.Approximately(Time.timeScale, 0f)) return;
                 Release();
             }
@@ -68,9 +70,13 @@ namespace MentosCola {
         [SerializeField] GameObject splashTargetPoint = default;
 
 
+        /// <summary>
+        /// 手の状態を起動時に近い状態にする。
+        /// </summary>
         public void InitializeState(){
             handSprite.sprite = handClose;
             state = Status.Stopping;
+            Destroy(mentos);
             handMover.DoIdle();
         }
     }

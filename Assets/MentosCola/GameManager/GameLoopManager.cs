@@ -64,11 +64,13 @@ namespace MentosCola {
         void ChangeToPause() {
             state = State.Pause;
             ActivateCanvas(pauseCanvas);
+            Time.timeScale = 0.0f;
         }
 
         void ChangeFromPause(){
             state = State.Play;
             DeactivateCanvas();
+            Time.timeScale = 1.0f;
         }
 
         public void SwitchPause(){

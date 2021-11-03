@@ -32,6 +32,9 @@ namespace MentosCola {
         // スコアアニメーションするときのクラス
         [SerializeField] Score.ScoreAnimator scoreAnimator = default;
 
+        // ミス判定、成功判定したときの待機時間のコルーチン（あとで止めたい時がある）
+        Coroutine waitCoroutine = default;
+
         public void StartFirstPlay() {
             _playTime = 0;
             oneLoopScoreManager.Reset(_maximumPlayTime);
@@ -80,7 +83,7 @@ namespace MentosCola {
 
             bool hasSplashed = true;
             DoScoreProcessing(hasSplashed);
-            StartCoroutine(WaitSecondsThenStart(3));
+            waitCoroutine = StartCoroutine(WaitSecondsThenStart(3));
 
             scoreAnimator.AnimateScore(thisTimeResult);
 
@@ -97,7 +100,7 @@ namespace MentosCola {
 
             bool hasSplashed = false;
             DoScoreProcessing(hasSplashed);
-            StartCoroutine(WaitSecondsThenStart(3));
+            waitCoroutine = StartCoroutine(WaitSecondsThenStart(3));
         }
 
         /// <summary>スコア処理をする</summary>
@@ -153,6 +156,12 @@ namespace MentosCola {
             animatorCC.OnTitle();
             ChangeToNotPlaying();
             oneLoopScoreManager.EndOnePlayLoop();
+
+            // ミス判定、成功判定が出た後はコルーチン内の処理が続けられるので、止める。
+            if(waitCoroutine != default(Coroutine)){
+                StopCoroutine(waitCoroutine);
+                waitCoroutine = default;
+            }
         }
     }
 }

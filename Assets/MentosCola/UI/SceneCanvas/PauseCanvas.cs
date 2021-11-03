@@ -14,12 +14,10 @@ namespace MentosCola {
         
         public void Deactivate() {
             canvas.enabled = false;
-            Time.timeScale = 1.0f;
         }
 
         public void Activate() {
             canvas.enabled = true;
-            Time.timeScale = 0.0f;
         }
 
         /// <summary>
