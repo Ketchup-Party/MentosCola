@@ -16,14 +16,19 @@ namespace MentosCola {
 
             string escapedText = UnityWebRequest.EscapeURL(text);
             // string[] hashTags = { "メントスコーラゲーム", "KetchupParty" };
-            string[] hashTags = { "メントスコーラゲーム" };
+            string[] hashTags = { "ゲーミングメントスコーラ" };
 
             string escapedHashTag = UnityWebRequest.EscapeURL(hashTags[0]);
             for (int i = 1; i < hashTags.Length; ++i) {
                 escapedHashTag += "," + UnityWebRequest.EscapeURL(hashTags[i]);
             }
 
-            string tweetUrl = "https://twitter.com/intent/tweet?text=" + escapedText + "&hashtags=" + escapedHashTag;
+            string escapedNewLine = UnityWebRequest.EscapeURL("\n");
+
+            string unityLoomURL = "https://unityroom.com/games/gaming_mentos_cola";
+            string escapedUnityLoomURL = UnityWebRequest.EscapeURL(unityLoomURL);
+
+            string tweetUrl = "https://twitter.com/intent/tweet?text=" + escapedText + "&hashtags=" + escapedHashTag + escapedNewLine + escapedUnityLoomURL;
 
             Application.OpenURL(tweetUrl);
         }
