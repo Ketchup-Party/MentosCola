@@ -10,8 +10,7 @@ namespace MentosCola {
         enum State {
             Title,
             Play,
-            Result,
-            Pause
+            Result
         }
 
         State state = State.Title;
@@ -22,7 +21,6 @@ namespace MentosCola {
 
         [SerializeField] TitleCanvas titleCanvas = default;
         [SerializeField] ResultCanvas resultCanvas = default;
-        [SerializeField] PauseCanvas pauseCanvas = default;
         // アクティブキャンバスが一つになるように管理したい
         IStateSceneCanvas _activeStateSceneCanvas = default;
 
@@ -45,7 +43,6 @@ namespace MentosCola {
         public void ChangeToTitle() {
             state = State.Title;
             ActivateCanvas(titleCanvas);
-            gameOnePlayLoopManager.ResetPlayLoop();
         }
 
         [SerializeField] GameOnePlayLoopManager gameOnePlayLoopManager = default;
@@ -59,26 +56,6 @@ namespace MentosCola {
             state = State.Result;
             resultCanvas.SetNewScore(score);
             ActivateCanvas(resultCanvas);
-        }
-
-        void ChangeToPause() {
-            state = State.Pause;
-            ActivateCanvas(pauseCanvas);
-            Time.timeScale = 0.0f;
-        }
-
-        void ChangeFromPause(){
-            state = State.Play;
-            DeactivateCanvas();
-            Time.timeScale = 1.0f;
-        }
-
-        public void SwitchPause(){
-            if(state == State.Play){
-                ChangeToPause();
-            }else if(state == State.Pause){
-                ChangeFromPause();
-            }
         }
     }
 }

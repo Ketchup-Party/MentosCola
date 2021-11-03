@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -233,7 +233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleCanvas: {fileID: 360881284}
   resultCanvas: {fileID: 1104613531}
-  pauseCanvas: {fileID: 892446577}
   gameOnePlayLoopManager: {fileID: 1238319476}
 --- !u!4 &92426300
 Transform:
@@ -248,7 +247,6 @@ Transform:
   m_Children:
   - {fileID: 360881283}
   - {fileID: 1104613530}
-  - {fileID: 892446576}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5431,7 +5429,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7795275, y: 1}
+    m_SensorSize: {x: 1.7782102, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5447,7 +5445,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180613960}
-  m_LocalRotation: {x: 0.47029412, y: 0.23058662, z: -0.12878335, w: 0.8420618}
+  m_LocalRotation: {x: 0.47029412, y: 0.2305866, z: -0.12878335, w: 0.8420619}
   m_LocalPosition: {x: -1.2426777, y: 10.66198, z: -4.887017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6877,7 +6875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891500a2cd81d4b4591714054f5eb6d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameLoopManager: {fileID: 92426299}
+  gameOnePlayLoopManager: {fileID: 1238319476}
 --- !u!4 &502308317
 Transform:
   m_ObjectHideFlags: 0
@@ -6886,9 +6884,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502308315}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 455, y: 256, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 892446576}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7743,7 +7742,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7795275, y: 1}
+    m_SensorSize: {x: 1.7782102, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7759,7 +7758,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712455572}
-  m_LocalRotation: {x: -0.053520303, y: -0.0049286, z: -0.00026416196, w: 0.9985546}
+  m_LocalRotation: {x: -0.053520326, y: -0.0049286345, z: -0.00026416394, w: 0.9985546}
   m_LocalPosition: {x: 3.4, y: 6.6, z: -34.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8975,8 +8974,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1219906973}
-  m_Father: {fileID: 92426300}
-  m_RootOrder: 2
+  m_Father: {fileID: 502308317}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8995,7 +8994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea03c7a385a99e9438d01bdfb26abb57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameLoopManager: {fileID: 92426299}
+  gameOnePlayLoopManager: {fileID: 1238319476}
 --- !u!114 &892446578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10504,7 +10503,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193843298}
-  m_LocalRotation: {x: 0.16186942, y: 0.68550825, z: -0.16047485, w: 0.6914655}
+  m_LocalRotation: {x: 0.1618694, y: 0.68550825, z: -0.16047484, w: 0.69146556}
   m_LocalPosition: {x: -13.0573225, y: 7.3680205, z: -0.11298323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -10962,6 +10961,7 @@ MonoBehaviour:
   saveDataManager: {fileID: 2045323955}
   scoreAnimator: {fileID: 1178776715}
   hand: {fileID: 1140040320}
+  pauseCanvas: {fileID: 892446577}
   mentosManager: {fileID: 1717779692}
   mentosAltitudeThreshold: -1
   gameLoopManager: {fileID: 92426299}
@@ -11770,7 +11770,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7795275, y: 1}
+    m_SensorSize: {x: 1.7782102, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11786,7 +11786,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495696636}
-  m_LocalRotation: {x: 0.22975291, y: -0.00000024429968, z: 0.000000057671322, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: -0.00000027779186, z: 0.00000006557776, w: 0.973249}
   m_LocalPosition: {x: 0.0000021457672, y: 2, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -13083,7 +13083,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7795275, y: 1}
+    m_SensorSize: {x: 1.7782102, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -13099,7 +13099,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725715269}
-  m_LocalRotation: {x: 0.16186942, y: 0.68550825, z: -0.16047485, w: 0.6914655}
+  m_LocalRotation: {x: 0.1618694, y: 0.68550825, z: -0.16047484, w: 0.69146556}
   m_LocalPosition: {x: -10, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14853,7 +14853,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7795275, y: 1}
+    m_SensorSize: {x: 1.7782102, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

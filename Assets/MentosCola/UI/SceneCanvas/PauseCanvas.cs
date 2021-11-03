@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace MentosCola {
     /// <summary>ポーズ画面のキャンバス</summary>
-    public class PauseCanvas : MonoBehaviour, IStateSceneCanvas {
+    public class PauseCanvas : MonoBehaviour {
         Canvas canvas;
-        [SerializeField] GameLoopManager gameLoopManager = default;
+        [SerializeField] GameOnePlayLoopManager gameOnePlayLoopManager = default;
         void Awake() {
             canvas = GetComponent<Canvas>();
             Deactivate();
         }
-        
+
         public void Deactivate() {
             canvas.enabled = false;
         }
@@ -23,8 +23,9 @@ namespace MentosCola {
         /// <summary>
         /// Go Title ボタン押したら呼ばれる。
         /// </summary>
-        public void TitleButtonClick(){
-            gameLoopManager.ChangeToTitle();
+        public void TitleButtonClick() {
+            gameOnePlayLoopManager.ResetPlayLoop();
+            Deactivate();
         }
     }
 }
