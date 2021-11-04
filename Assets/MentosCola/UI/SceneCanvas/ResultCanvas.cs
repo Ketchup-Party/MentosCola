@@ -32,5 +32,12 @@ namespace MentosCola {
 
             canvas.enabled = true;
         }
+
+        /// <summary>
+        /// ResultCanvasの Ranking ボタン押したときに呼ばれる。
+        /// </summary>
+        public void OpenRankingSystem() {
+            naichilab.RankingLoader.Instance.SendScoreAndShowRanking(newScore);
+        }
     }
 }

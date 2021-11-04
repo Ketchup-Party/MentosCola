@@ -1,13 +1,12 @@
--------------------------------------------
+---------------------------------------------------------
 DOTWeen
--------------------------------------------
+---------------------------------------------------------
 http://dotween.demigiant.com/license.php
 
 
-
--------------------------------------------
+---------------------------------------------------------
 Amatic SC
--------------------------------------------
+---------------------------------------------------------
 Copyright 2015 The Amatic SC Project Authors (https://github.com/googlefonts/AmaticSC)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
@@ -15,8 +14,19 @@ This license is copied below, and is also available with a FAQ at:
 http://scripts.sil.org/OFL
 
 
-
--------------------------------------------
+---------------------------------------------------------
 Ubuntu Mono
--------------------------------------------
+---------------------------------------------------------
 https://assets.ubuntu.com/v1/81e5605d-ubuntu-font-licence-1.0.txt
+
+
+---------------------------------------------------------
+ニフクラ mobile backend Unity SDK
+---------------------------------------------------------
+https://github.com/NIFCLOUD-mbaas/ncmb_unity/blob/master/LICENSE
+
+
+---------------------------------------------------------
+unity-simple-ranking
+---------------------------------------------------------
+https://github.com/naichilab/unity-simple-ranking/blob/master/LICENSE
