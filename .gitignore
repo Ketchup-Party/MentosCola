@@ -64,3 +64,6 @@ crashlytics-build.properties
 
 # macOS
 .DS_Store
+
+# Layout setting file
+*.dwlt
