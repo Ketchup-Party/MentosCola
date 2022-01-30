@@ -153,6 +153,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.MocchiriProduction.GamingMentosCola
     Standalone: com.MocchiriProduction.MentosCola
     iPhone: com.MocchiriProduction.GamingMentosCola
   buildNumber:
